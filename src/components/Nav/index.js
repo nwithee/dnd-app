@@ -1,56 +1,22 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 //import { capitalizeFirstLetter } from "../../utils/helpers";
 
-function Nav(props) {
-    const {
-      categories = [],
-      setCurrentCategory,
-      currentCategory,
-      contactSelected,
-      setContactSelected
-    } = props;
-
-    useEffect(() => {
-        //document.title = capitalizeFirstLetter(currentCategory.name);
-    }, [currentCategory]);
-  
+function Nav() {
     return (
-      <header className="flex-row px-1">
         <nav class ="navbar">
-        <h2>
-          <a class ="light" data-testid="link" href="/">
-            <span role="img" aria-label="camera"> 🐉 </span> D&D Character Creator
-          </a>
-        </h2>
-          <ul className="flex-row">
-            <li className="mx-2">
-              <a data-testid="about" href="#about" onClick={() => setContactSelected(false)}>
-                About me
-              </a>
-            </li>
-            <li className = {`mx-2 ${contactSelected && 'navActive'}`}>
-              <span onClick ={() => setContactSelected(true)}>Contact</span>
-            </li>
-            {categories.map((category) => (
-              <li
-                className={`mx-1 ${
-                  currentCategory.name === category.name && !contactSelected && 'navActive'
-                  }`}
-                key={category.name}
-              >
-                <span
-                  onClick={() => {
-                    setCurrentCategory(category)
-                    setContactSelected(false);
-                  }}
-                >
-                  {(category.name)}
-                </span>
-              </li>
-            ))}
-          </ul>
+          <a class ="light" href="/"><span role="img" aria-label="camera"> 🐉 </span> D&D Character Creator</a>
+            <ul>
+                <li>
+                    <a class="light" href="/dashboard">Dashboard</a>
+                </li>
+                <li>
+                <a id="logout" href="/login">Logout</a>
+                </li>
+                <li>
+                <a class="light right" href="/login">Login</a>
+                </li>
+            </ul>
         </nav>
-      </header>
     );
   }
 
