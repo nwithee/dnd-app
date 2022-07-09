@@ -7,7 +7,6 @@ function CharacterSheet() {
     </header>
     )
 
-    return ()
 }
 
 export default CharacterSheet;
