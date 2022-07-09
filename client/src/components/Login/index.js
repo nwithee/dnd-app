@@ -42,7 +42,7 @@ function Login() {
           <h1>Login</h1>
           <form id="login-form" onSubmit = {handleSubmit}>
             <div>
-                <label htmlFor="email">Email address:</label>
+                <label htmlFor="email">Email address</label>
                 <input type="email" defaultValue={email} name="email" onBlur={handleChange} />
             </div>
             <div>
@@ -55,6 +55,10 @@ function Login() {
                 </div>
             )}
             <button type="submit">Submit</button>
+            <div>
+              <span>Need to create a new account?  Click </span>
+              <button type="submit">Here!</button>
+            </div>
           </form>
         </section>
       )
