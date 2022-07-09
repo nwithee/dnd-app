@@ -3,7 +3,7 @@ import './App.css';
 import Nav from './components/Nav';
 import Library from './components/Library';
 import Login from './components/Login';
-import Characters from './components/Characters';
+import Charcards from './components/Charcards';
 
 function App() {
 
@@ -19,7 +19,7 @@ function App() {
         {!loginSelected ? (
           <>
             <Library></Library>
-            <Characters></Characters>
+            <Charcards></Charcards>
           </>
         ) : (
           <Login></Login>
