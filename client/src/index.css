@@ -102,20 +102,39 @@ h2 {
   font-size: 40px;
 }
 
+
+
+.full-char {
+  width: fit-content;
+  height: fit-content;
+  font-family: "Cinzel Decorative", cursive;
+  padding: 0;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+/*Character Card code */
+.section {
+
+}
+
 .card {
   box-shadow: 2px 3px 6px #626a54, 0 0 53px #8a4d0f inset;
   background: #f9f7f4 !important;
   filter: url(#wavy2);
   background-color: #f9f7f4 !important;
   height: 100%;
+  width: fit-content;
+  border-radius: 25px;
 }
 
 .card:hover {
   border-width: 0 2px 3px 0;
   margin-right: 4px;
   position: relative;
-  left: 2px;
-  top: 3px;
+  bottom: 30px;
 }
 
 .card > a {
@@ -132,14 +151,12 @@ h2 {
   height: -webkit-fill-available;
 }
 
-.full-char {
-  width: fit-content;
-  height: fit-content;
-  font-family: "Cinzel Decorative", cursive;
-  padding: 0;
+
+.img-thumbnail {
+  width: auto;
+  height: 300px;
+  margin-bottom: 50px;
+  cursor: pointer;
 }
 
-.disabled {
-  pointer-events: none;
-}
 

@@ -1,5 +1,18 @@
 import React, { useEffect } from 'react';
-//import { capitalizeFirstLetter } from "../../utils/helpers";
+import styled from 'styled-components';
+
+//CSS Styling
+const Navbar = styled.nav`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-conent: space-around;
+  align-items: center;
+  font-size: 2em;
+  color: black;
+  a:link {text-decoration: none;}
+  a {color: black;}
+  cursor: pointer;
+`;
 
 function Nav(props) {
   const {
@@ -8,17 +21,14 @@ function Nav(props) {
   } = props;
 
     return (
-        <nav class ="navbar">
-          <a class ="light" href="/"><span role="img" aria-label="camera"> 🐉 </span> D&D Character Creator</a>
-            <ul>
-                <li>
-                    <a id="logout" href="/login">Logout</a>
-                </li>
-                <li>
-                    <a class="light right" onClick ={() => setLoginSelected(true)}>Login</a>
-                </li>
-            </ul>
-        </nav>
+        <Navbar>
+          <div>
+            <a href="/"><span role="img" label="dragon"> 🐉 </span> D&D Character Creator<span role="img" label="dragon"> 🐉 </span></a>
+          </div>
+          <div>
+            <span onClick ={() => setLoginSelected(true)}>Login</span>
+          </div>
+        </Navbar>
     );
   }
 
