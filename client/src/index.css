@@ -229,7 +229,7 @@ form.charsheet main > section section.attributes div.scores ul li div.score inpu
   padding: 2px 0px 0px 0px;
 }
 
-//Rob Code
+/*Rob Code
 form.charsheet main > section section.attributes div.scores ul li div.modifier {
   margin-top: 3px;
 }
@@ -620,7 +620,7 @@ form.charsheet main section.equipment > div > div.money ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-//
+*/
 
 
 .full-char {
@@ -663,7 +663,7 @@ form.charsheet main section.equipment > div > div.money ul > li label {
   padding: 3px 0;
 }
 
-//Rob Code
+/*Rob Code
 form.charsheet main section.equipment > div > div.money ul > li input {
   border: 1px solid black;
   border-radius: 10px;
@@ -671,7 +671,7 @@ form.charsheet main section.equipment > div > div.money ul > li input {
   padding: 10px 3px;
   font-size: 12px;
   text-align: center;
-//  
+*/  
 .card:hover {
   border-width: 0 2px 3px 0;
   margin-right: 4px;
@@ -696,7 +696,7 @@ form.charsheet main section.flavor {
   border-radius: 10px;
 }
 
-//Rob Code
+/*Rob Code
 form.charsheet main section.flavor div {
   display: flex;
   flex-direction: column-reverse;
@@ -749,7 +749,7 @@ form.charsheet main section.features div textarea {
   padding: 5px;
   height: 43em;
 }
-//
+*/
 
 .img-thumbnail {
   width: auto;

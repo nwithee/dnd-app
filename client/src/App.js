@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
+import styled from 'styled-components';
+//import './App.css';
 import Nav from './components/Nav';
 import Library from './components/Library';
 import Login from './components/Login';
@@ -17,7 +18,7 @@ function App() {
         loginSelected = {loginSelected}
         setLoginSelected = {setLoginSelected}
        ></Nav>
-      <main>
+      <Main>
         {!loginSelected ? (
           <>
             <Library></Library>
@@ -28,10 +29,20 @@ function App() {
         ) : (
           <Login></Login>
         )}
-      </main>
+      </Main>
 
     </div>
   );
 }
+
+const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 40%;
+  width: 100%;
+  padding: 20px;
+`;
 
 export default App;
