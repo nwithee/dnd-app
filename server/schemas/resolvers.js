@@ -6,7 +6,7 @@ const resolvers = {
         users: async () => {
             return User.find()
                 .select('-__v -password')
-                // .populate('characters');
+                .populate('characters');
         },
         // get a user by username
         user: async (parent, { username }) => {
@@ -14,14 +14,11 @@ const resolvers = {
                 .select('-__v -password')
                 .populate('characters')
         },
-        // characters: async (parent, { username }) => {
-        //     const params = username ? { username } : {};
-        //     return Character.find(params).sort({ createdAt: -1 });
-        // },
-        // character: async (parent, { _id }) => {
-        //     return Character.findOne({ _id });
-        // }
-
+        //characters by username
+        characters: async (parent, { username }) => {
+            const params = username ? { username } : {};
+            return Character.find(params).sort({ createdAt: -1 });
+        },
     },
 
     Mutation: {
@@ -30,10 +27,10 @@ const resolvers = {
 
             return user;
         },
-    //     addChar: async (parent, args) => {
-    //         const char = await Character.create(args);
-    //         return { char };
-    //     }
+        addChar: async (parent, args) => {
+            const char = await Character.create(args);
+            return { char };
+        }
     }
 }
 
