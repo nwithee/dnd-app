@@ -3,7 +3,8 @@ import './App.css';
 import Nav from './components/Nav';
 import Library from './components/Library';
 import Login from './components/Login';
-import Characters from './components/Characters';
+import Charcards from './components/Charcards';
+import CharacterSheet from './components/CharacterSheet';
 
 function App() {
 
@@ -13,18 +14,21 @@ function App() {
     <div className="App">
       <Nav
         loginSelected = {loginSelected}
-        setContactSelected = {setLoginSelected}
+        setLoginSelected = {setLoginSelected}
        ></Nav>
       <main>
         {!loginSelected ? (
           <>
             <Library></Library>
-            <Characters></Characters>
+            <Charcards></Charcards>
+            {/* CharacterSheet is in the wrong place */}
+            <CharacterSheet></CharacterSheet> 
           </>
         ) : (
           <Login></Login>
         )}
       </main>
+
     </div>
   );
 }
