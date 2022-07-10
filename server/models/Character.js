@@ -499,12 +499,10 @@ const characterSchema = new Schema(
             required: false,
             unique: false,
         },
-        user: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'User'
-            }
-        ],
+        username: {
+                type: String,
+                required: true
+            },
     },
     {
         toJSON: {
