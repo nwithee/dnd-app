@@ -3,10 +3,12 @@ import styled from 'styled-components';
 import Button from '../CSS/Button';
 import { validateEmail } from '../../utils/helpers';
 
+
+
 function Login() {
-    
-    const [formState, setFormState] = useState({ email: '', password: '' });
-    const { email, password } = formState;
+
+    const [formState, setFormState] = useState({ username: '', email: '', password: '' });
+    const { username, email, password } = formState;
     const [errorMessage, setErrorMessage] = useState('');
     
     function handleChange(e) {
@@ -21,14 +23,14 @@ function Login() {
               }
         } else {
             if (!e.target.value.length) {
-              setErrorMessage(`Your password is required.`);
+              setErrorMessage(`A ${e.target.name} is required.`);
             } else {
               setErrorMessage('');
             }
           }
         
           if (!errorMessage) {
-            setFormState({ ...formState, [e.target.password]: e.target.value });
+            setFormState({ ...formState, [e.target.name]: e.target.value });
           }
 
         console.log('errorMessage', errorMessage);
@@ -38,33 +40,75 @@ function Login() {
         e.preventDefault();
         console.log(formState);
     }
+    
+    //Code for switching between login and signup
+    const [login, setLogin] = useState(true);
+    const [signup, setSignup] = useState(false);
+
+    const loginHandler = () => {
+        setLogin(true);
+        setSignup(false);
+    };
+    const signupHandler = () => {
+        setLogin(false);
+        setSignup(true);
+    };
 
     return (
         <MainContainer>
-          <LoginText>Login</LoginText>
-            <InputContainer>
-                <label htmlFor="email">Email address</label>
-                <input type="email" defaultValue={email} name="email" onBlur={handleChange} />
+            <ButtonContainer>
+                <button content = "Login" onClick={loginHandler}>
+                    Login</button>
+                <button onClick={signupHandler}>
+                    Signup</button>
+            </ButtonContainer>
+            {login && (
+                <>
+                <LoginText>Login</LoginText>
+                <InputContainer>
+                    <label htmlFor="email">Email address</label>
+                    <input type="email" defaultValue={email} name="email" onBlur={handleChange} />
 
-                <label htmlFor="password">Password</label>
-                <input type="text" defaultValue={password} onBlur={handleChange} name="password" />
-            </InputContainer>
-              {errorMessage && (
-                  <div>
-                      <p className="error-text">{errorMessage}</p>
-                  </div>
-              )}
-            <ButtonContainer>
-              <Button content = "Sign Up!"></Button>
-            </ButtonContainer>
-            <ButtonContainer>
-                <span>Need to create a new account?  Click </span>
-                <Button content = "Here!"></Button>
-            </ButtonContainer>
+                    <label htmlFor="password">Password</label>
+                    <input type="text" defaultValue={password} onBlur={handleChange} name="password" />
+                </InputContainer>
+                {errorMessage && (
+                    <div>
+                        <p className="error-text">{errorMessage}</p>
+                    </div>
+                )}
+                <ButtonContainer>
+                    <Button content = "Login!"></Button>
+                </ButtonContainer>
+                </>
+            )}
+            {signup && (
+                <>
+                <LoginText>Signup</LoginText>
+                <InputContainer>
+                    <label htmlFor="username">Username</label>
+                    <input type="text" defaultValue={username} name="username" onBlur={handleChange} />
+
+                    <label htmlFor="email">Email address</label>
+                    <input type="email" defaultValue={email} name="email" onBlur={handleChange} />
+
+                    <label htmlFor="password">Password</label>
+                    <input type="text" defaultValue={password} onBlur={handleChange} name="password" />
+                </InputContainer>
+                {errorMessage && (
+                    <div>
+                        <p className="error-text">{errorMessage}</p>
+                    </div>
+                )}
+                <ButtonContainer>
+                    <Button content = "Create Account!"></Button>
+                </ButtonContainer>
+                </>
+            )}
         </MainContainer>
-      )
-
+    );
 }
+
 
 const MainContainer = styled.div`
   display: flex;
@@ -130,10 +174,11 @@ const InputContainer = styled.div`
 
 const ButtonContainer = styled.div`
   width: 100%;
+  margin: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  
 `;
-
 
 export default Login;

@@ -20,6 +20,7 @@ const StyledButton = styled.button`
     text-shadow: 2px 2px 3px rgb(255 255 255 / 50%);
     color: black;
     width: fit-content;
+    cursor: pointer;
     &:hover {
         border-width: 0 2px 3px 0;
         margin-right: 4px;
