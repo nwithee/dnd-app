@@ -8,7 +8,7 @@ const typeDefs = gql`
         username: String
         email: String
         charCount: Int
-        character: [Character]
+        characters: [Character]
     }
 
     type Character {
@@ -51,16 +51,18 @@ const typeDefs = gql`
         experiencePoints: Int
         proficiencyBonus: Int
         inspiration: Int
-        User: [User]
+        username: String
     }
 
     type Query {
         users: [User]
         user(username: String!): User
+        characters(username: String): [Character]
     }
 
     type Mutation {
         addUser(username: String!, email: String!, password: String!): User
+        addChar(name: String!, strength: Int, dexterity: Int, constitution: Int, username: String!): Character
     }
 
 `;
