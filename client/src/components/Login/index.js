@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../CSS/Button';
+//import { useMutation } from '@apollo/client';
+//import { ADD_USER } from '../utils/mutations';
 import { validateEmail } from '../../utils/helpers';
 
 
 
 function Login() {
-
     const [formState, setFormState] = useState({ username: '', email: '', password: '' });
     const { username, email, password } = formState;
     const [errorMessage, setErrorMessage] = useState('');
     
+    //Code for validating input
     function handleChange(e) {
         if (e.target.name === 'email') {
             const isValid = validateEmail(e.target.value);
@@ -53,6 +55,8 @@ function Login() {
         setLogin(false);
         setSignup(true);
     };
+
+    //Code for capturing user details
 
     return (
         <MainContainer>
