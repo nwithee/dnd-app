@@ -1,10 +1,12 @@
 import React from 'react';
+import "./Bio/Bio.js"
 
 function CharacterSheet() {
     return (
-    <header class="col-12">
-        This is the character card place filler
-    </header>
+    <div>
+        <Bio />
+        <AbilityScores />
+    </div>
     )
 
 }
