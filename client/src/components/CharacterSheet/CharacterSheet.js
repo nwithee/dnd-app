@@ -6,6 +6,7 @@ function CharacterSheet() {
     <div>
         <Bio />
         <AbilityScores />
+        <Skills />
     </div>
     )
 
