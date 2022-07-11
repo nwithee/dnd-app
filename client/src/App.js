@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Nav from './components/Nav';
 import Library from './components/Library';
 import Login from './components/Login';
 import Charcards from './components/Charcards';
-import CharacterSheet from './components/CharacterSheet';
+import CharacterSheet from './components/CharacterSheet/CharacterSheet';
 
 function App() {
 
@@ -15,17 +16,17 @@ function App() {
       <Nav
         loginSelected = {loginSelected}
         setLoginSelected = {setLoginSelected}
-       ></Nav>
+      ></Nav>
       <main>
         {!loginSelected ? (
           <>
-            <Library></Library>
-            <Charcards></Charcards>
+            <Library/>
+            <Charcards/>
             {/* CharacterSheet is in the wrong place */}
-            <CharacterSheet></CharacterSheet> 
+            <CharacterSheet/> 
           </>
         ) : (
-          <Login></Login>
+          <Login/>
         )}
       </main>
 
