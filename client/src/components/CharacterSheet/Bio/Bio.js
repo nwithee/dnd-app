@@ -1,20 +1,16 @@
 import React from 'react';
-
-// import PlayerClass from './PlayerClass/PlayerClass.js';
-// import PlayerBackground from './PlayerBackground/PlayerBackground.js';
-// import PlayerRace from './PlayerRace/PlayerRace.js';
-// import PlayerAlignment from './PlayerAlignment/PlayerAlignment.js';
 import SimpleText from './SimpleText/SimpleText';
+import Dropdown from './Dropdown/Dropdown';
 
 const Bio = () => {
   return (
     <div>
       <SimpleText textID='characterName' label='name'/>
-      <SimpleText textID='characterClass' label='class'/>
-      <SimpleText textID='characterBackground' label='background'/>
+      <Dropdown options='classOptions'/>
+      <Dropdown textID='backgroundOptions'/>
       <SimpleText textID='playerName' label='name'/>
-      <SimpleText textID='characterRace' label='race'/>
-      <SimpleText textID='characterAlignment' label='alignment'/>
+      <Dropdown textID='raceOptions'/>
+      <Dropdown textID='alignmentOptions'/>
       <SimpleText textID='characterXP' label='XP'/>
     </div>
   )
