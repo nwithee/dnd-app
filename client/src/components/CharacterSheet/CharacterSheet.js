@@ -1,17 +1,16 @@
 import React from 'react';
-import "./Bio/Bio.js"
-import "./AbilityScores/AbilityScores.js"
-import "./Skills/Skills.js"
+import AbilityScores from "./AbilityScores/AbilityScores.js"
+import Bio from "./Bio/Bio.js"
+import Skills from "./Skills/Skills.js"
 
-function CharacterSheet() {
+const CharacterSheet = (props) => {
     return (
-    <div>
-        <Bio />
-        <AbilityScores />
-        <Skills />
-    </div>
+        <div>
+            <AbilityScores />
+            <Bio />
+            <Skills />
+        </div>
     )
-
 }
 
 export default CharacterSheet;

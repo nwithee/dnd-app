@@ -1,34 +1,36 @@
 import React, { useState } from 'react';
 
+
+
 const AbilityScore = (props) => {
-  return () => {
 
-    const [abilityScore, setAbilityScore] = useState(props.abilityScore);
-    const [abilityScoreModifier, setAbilityScoreModifier] = useState(props.abilityScoreModifier);
+  const [abilityScore, setAbilityScore] = useState('');
+  const [abilityScoreModifier, setAbilityScoreModifier] = useState('');
 
-    const handleScoreChange = (event) => {
-      setAbilityScore(event.target.value);
-      setAbilityScoreModifier(Math.floor((abilityScore - 10) / 2));
-    }
+  const handleScoreChange = (event) => {
+  setAbilityScore(event.target.value);
+  setAbilityScoreModifier(Math.floor((abilityScore - 10) / 2));
+  }
 
-    return (
+  return ( 
       <li>
         <div className="score">
-          <label for={`${scoreName}score`}>{scoreName}</label><input 
-          name={`${scoreName}score`} 
+          <label>{props.scoreName}</label>
+          <input 
+          name={`${props.scoreName}score`} 
           placeholder="10"
           value={abilityScore}
-          onChange={handleScoreChange} />
+          onChange={ handleScoreChange } />
         </div>
         <div className="modifier">
-          <p 
-          name={`${scoreName}mod`} 
-          placeholder="+0"
-          value={abilityScoreModifier} />
+          <label>{`${props.scoreName} Mod`}</label>
+          <input 
+          name={`${props.scoreName}mod`} 
+          placeholder="+0" defaultValue={abilityScoreModifier}/>
         </div>
       </li>
-    )
-  }
+  )
 }
+
 
 export default AbilityScore;

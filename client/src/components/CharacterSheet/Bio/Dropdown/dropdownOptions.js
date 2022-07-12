@@ -1,94 +1,57 @@
-const classDropdownOptions = [
+const classOptions = [
   {
-    value: 'Warrior',
-    label: 'Warrior'
+    value: 'barbarian',
+    label: 'Barbarian'
   },
   {
-    value: 'Rogue',
-    label: 'Rogue'
-  },
-  {
-    value: 'Sorcerer',
-    label: 'Sorcerer'
-  },
-  {
-    value: 'Bard',
+    value: 'bard',
     label: 'Bard'
   },
   {
-    value: 'Cleric',
+    value: 'cleric',
     label: 'Cleric'
+  },
+  {
+    value: 'druid',
+    label: 'Druid'
+  },
+  {
+    value: 'fighter',
+    label: 'Fighter'
   }
 ];
 
-const backgroundDropdownOptions = [
+const backgroundOptions = [
   {
-    value: 'Acolyte',
+    value: 'acolyte',
     label: 'Acolyte'
   },
   {
-    value: 'Charlatan',
-    label: 'Charlatan'
-  },
-  {
-    value: 'Criminal',
-    label: 'Criminal'
-  },
-  {
-    value: 'Entertainer',
-    label: 'Entertainer'
-  },
-  {
-    value: 'Folk Hero',
-    label: 'Folk Hero'
+    value: 'pickpocket',
+    label: 'Pickpocket'
   }
 ];
 
-const raceDropdownOptions = [
+const raceOptions = [
   {
-    value: 'Dwarf',
-    label: 'Dwarf'
+    value: 'human',
+    label: 'Human'
   },
   {
-    value: 'Elf',
+    value: 'elf',
     label: 'Elf'
-  },
-  {
-    value: 'Gnome',
-    label: 'Gnome'
-  },
-  {
-    value: 'Half-Elf',
-    label: 'Half-Elf'
-  },
-  {
-    value: 'Half-Orc',
-    label: 'Half-Orc'
   }
 ];
 
-const alignmentDropdownOptions = [
+const alignmentOptions = [
   {
-    value: 'Lawful Good',
-    label: 'Lawful Good'
+    value: 'lawful',
+    label: 'Lawful'
   },
   {
-    value: 'Neutral Good',
-
-    label: 'Neutral Good'
-  },
-  {
-    value: 'Chaotic Good',
-    label: 'Chaotic Good'
-  },
-  {
-    value: 'Lawful Neutral',
-    label: 'Lawful Neutral'
-  },
-  {
-    value: 'Neutral',
+    value: 'neutral',
     label: 'Neutral'
   }
 ];
 
-export { classDropdownOptions, backgroundDropdownOptions, raceDropdownOptions, alignmentDropdownOptions };
+export { classOptions, backgroundOptions, raceOptions, alignmentOptions };

@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import "./PlayerClass.css";
-import "./dummyValues.json";
 
 const PlayerClass = () => {
   const [playerClass, setPlayerClass] = useState("");

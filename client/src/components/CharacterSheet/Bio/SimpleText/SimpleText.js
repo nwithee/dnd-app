@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './SimpleText.css';
 
 const SimpleText = (props) => {
   const [text, setText] = useState('');
@@ -12,14 +11,14 @@ const SimpleText = (props) => {
     return (
       <div>
         <label htmlFor={props.textID}>{`Player ${props.label}`}</label>
-        <input type="text" id={props.textID} placeholder={`Player ${props.label}`} value={text} onChange={handleChange} />
+        <input type='text' id={props.textID} placeholder={`Player ${props.label}`} value={text} onChange={handleChange} />
       </div>
-  )
+    )
   } else {
     return (
       <div>
         <label htmlFor={props.textID}>{`Character ${props.label}`}</label>
-        <input type="text" id={props.textID} placeholder={`Character ${props.label}`} value={text} onChange={handleChange} />
+        <input type='text' id={props.textID} placeholder={`Character ${props.label}`} value={text} onChange={handleChange} />
       </div>
     )
   }
