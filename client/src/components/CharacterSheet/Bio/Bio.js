@@ -1,20 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import PlayerClass from './PlayerClass';
-import PlayerBackground from './PlayerBackground';
-import PlayerRace from './PlayerRace';
-import PlayerAlignment from './PlayerAlignment';
+import Dropdown from './Dropdown/Dropdown';
 import SimpleText from './SimpleText/SimpleText';
 
 const Bio = () => {
   return (
     <div>
       <SimpleText textID='characterName' label='Name'/>
-      <PlayerClass />
-      <PlayerBackground />
+      <Dropdown options={classDropdownOptions} />
       <SimpleText textID='playerName' label='Name'/>
-      <PlayerRace />
-      <PlayerAlignment />
       <SimpleText textID='characterXP' label='XP'/>
     </div>
   )
