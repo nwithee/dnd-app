@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import Nav from './components/Nav';
 import Library from './components/Library';
 import Login from './components/Login';
-import Charcards from './components/Charcards';
 //import CharacterSheet from './components/CharacterSheet/CharacterSheet.js';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 
@@ -33,7 +32,6 @@ function App() {
           {!loginSelected ? (
             <>
               <Library></Library>
-              <Charcards></Charcards>
               {/* CharacterSheet is in the wrong place */}
             </>
           ) : (

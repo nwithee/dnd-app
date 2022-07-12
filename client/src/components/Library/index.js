@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from '../CSS/Button';
+import Charcards from '../Charcards';
 
 //CSS Styling
     const Title = styled.h1`
             font-size: 3em;
             text-align: center;
+            margin: 20px;
         `;
 
 function Library() {
@@ -13,9 +15,13 @@ function Library() {
     return (
         <MainContainer>
             <Title>D&D Character Library</Title>
-            <div>
-                <Button content = "Create New Character"></Button>
-            </div>
+            
+            <Button content = "Create New Character"></Button>
+            
+            <CardContainer>
+                <Charcards></Charcards>
+            </CardContainer>
+
         </MainContainer>
     )
 }
@@ -24,10 +30,8 @@ const MainContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 80vh;
-  width: 30vw;
-  background: #f9f7f4 !important;
-  background-color: #f9f7f4 !important;
+  background: rgb(211,211,211);
+  background-color: rgb(211,211,211);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(8.5px);
   -webkit-backdrop-filter: blur(8.5px);
@@ -64,31 +68,18 @@ const MainContainer = styled.div`
     height: 50vh;
   }
   @media only screen and (min-width: 1280px) {
-    width: 30vw;
-    height: 80vh;
+    width: fit-content;
+    height: fit-content;
   }
 `;
 
-const LoginText = styled.h1`
-  margin: 5px 0 20px 0;
-`;
-
-const InputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  height: 40%;
+const CardContainer = styled.div`
   width: 100%;
-`;
-
-const ButtonContainer = styled.div`
-  width: 100%;
-  margin: 10px;
+  margin: 5px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  
+  flex-direction: row;
 `;
 
 export default Library;
