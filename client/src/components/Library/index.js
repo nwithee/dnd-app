@@ -1,33 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import Button from '../CSS/Button';
+//import Button from '../CSS/Button';
 import Charcards from '../Charcards';
 import CharacterSheet from '../CharacterSheet/CharacterSheet';
 
-//CSS Styling
-    const Title = styled.h1`
-            font-size: 3em;
-            text-align: center;
-            margin: 20px;
-        `;
-
 function Library() {
+
+//Code for switching between login and signup
+  const [sheet,setSheet] = useState(false);
+  const [cards, setCards] = useState(true);
+
+  const sheetHandler = () => {
+    setSheet(true);
+    setCards(false);
+  };
+  const cardsHandler = () => {
+    setSheet(false);
+    setCards(true);
+  };
     
     return (
         <MainContainer>
             <Title>D&D Character Library</Title>
             
-            <Button content = "Create New Character"></Button>
-            
+        {cards && (
+            <>
+            <Button onClick={sheetHandler}>Create New Character</Button>
             <CardContainer>
                 <Charcards></Charcards>
             </CardContainer>
-
+            </>
+        )}
+        {sheet && (
+            <>
             <CharacterSheet></CharacterSheet>
-
+            <Button onClick={cardsHandler}>Create Character!</Button>
+            </>
+        )}
         </MainContainer>
     )
 }
+
+//CSS Styling
 
 const MainContainer = styled.div`
   display: flex;
@@ -84,5 +98,37 @@ const CardContainer = styled.div`
   justify-content: space-around;
   flex-direction: row;
 `;
+
+const Title = styled.h1`
+font-size: 3em;
+text-align: center;
+margin: 20px;
+`;
+
+const Button = styled.button`
+  font-family: "Cinzel Decorative";
+  margin: 10px;
+  background-color: #8fa189;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;
+  font-weight: bold;
+  border: solid 5px #000;
+  border-width: 0 4px 5px 0;
+  border-radius: 5px;
+  border-color: transparent #6c7b67 #7f8f79 transparent;
+  background-clip: padding-box;
+  text-shadow: 2px 2px 3px rgb(255 255 255 / 50%);
+  color: black;
+  width: fit-content;
+  cursor: pointer;
+  &:hover {
+      border-width: 0 2px 3px 0;
+      margin-right: 4px;
+      position: relative;
+      left: 2px;
+      top: 3px;
+}
+`
 
 export default Library;
