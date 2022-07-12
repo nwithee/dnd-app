@@ -1,23 +1,21 @@
 import React, { useState } from 'react';
 
-import CharacterName from './CharacterName';
 import PlayerClass from './PlayerClass';
 import PlayerBackground from './PlayerBackground';
-import PlayerName from './PlayerName';
 import PlayerRace from './PlayerRace';
 import PlayerAlignment from './PlayerAlignment';
-import PlayerXP from './PlayerXP';
+import SimpleText from './SimpleText/SimpleText';
 
 const Bio = () => {
   return (
     <div>
-      <CharacterName />
+      <SimpleText textID='characterName' label='Name'/>
       <PlayerClass />
       <PlayerBackground />
-      <PlayerName />
+      <SimpleText textID='playerName' label='Name'/>
       <PlayerRace />
       <PlayerAlignment />
-      <PlayerXP />
+      <SimpleText textID='characterXP' label='XP'/>
     </div>
   )
 };
