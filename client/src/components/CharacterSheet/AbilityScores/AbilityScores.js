@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import AbilityScore from './AbilityScore/AbilityScore';
+import AbilityScore from './AbilityScore/AbilityScore.js';
 
 const AbilityScores = (props) => {
   return (

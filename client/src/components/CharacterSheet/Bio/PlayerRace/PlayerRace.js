@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './PlayerRace.css';
 
 const PlayerRace = () => {
   const [name, setName] = useState('');
