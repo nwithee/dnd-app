@@ -16,3 +16,5 @@ const PlayerClass = () => {
     </div>
   )
 }
+
+export default PlayerClass;
