@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../CSS/Button';
 import Charcards from '../Charcards';
+import CharacterSheet from '../CharacterSheet/CharacterSheet';
 
 //CSS Styling
     const Title = styled.h1`
@@ -21,6 +22,8 @@ function Library() {
             <CardContainer>
                 <Charcards></Charcards>
             </CardContainer>
+
+            <CharacterSheet></CharacterSheet>
 
         </MainContainer>
     )

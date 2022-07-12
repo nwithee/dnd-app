@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-//import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 //import './App.css';
 import Nav from './components/Nav';
 import Library from './components/Library';
 import Login from './components/Login';
-//import CharacterSheet from './components/CharacterSheet/CharacterSheet.js';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 
 const httpLink = createHttpLink({
@@ -32,7 +30,6 @@ function App() {
           {!loginSelected ? (
             <>
               <Library></Library>
-              {/* CharacterSheet is in the wrong place */}
             </>
           ) : (
             <Login></Login>
