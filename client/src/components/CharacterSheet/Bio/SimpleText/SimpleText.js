@@ -8,12 +8,21 @@ const SimpleText = (props) => {
     setText(e.target.value);
   }
 
-  return (
-    <div>
-      <label htmlFor={textID}>{`Player ${label}`}</label>
-      <input type="text" id={textID} placeholder={`Player ${label}`} value={text} onChange={handleChange} />
-    </div>
+  if (props.textID === 'playerName') {
+    return (
+      <div>
+        <label htmlFor={textID}>{`Player ${label}`}</label>
+        <input type="text" id={textID} placeholder={`Player ${label}`} value={text} onChange={handleChange} />
+      </div>
   )
+  } else {
+    return (
+      <div>
+        <label htmlFor={textID}>{`Character ${label}`}</label>
+        <input type="text" id={textID} placeholder={`Character ${label}`} value={text} onChange={handleChange} />
+      </div>
+    )
+  }
 }
 
 export default SimpleText;
