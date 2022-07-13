@@ -4,6 +4,7 @@ import Button from '../CSS/Button';
 //import { useMutation } from '@apollo/client';
 //import { ADD_USER } from '../utils/mutations';
 import { validateEmail } from '../../utils/helpers';
+import Signup from '../Signup';
 
 
 
@@ -89,24 +90,7 @@ function Login() {
             {signup && (
                 <>
                 <LoginText>Signup</LoginText>
-                <InputContainer>
-                    <label htmlFor="username">Username</label>
-                    <input type="text" defaultValue={username} name="username" onBlur={handleChange} />
-
-                    <label htmlFor="email">Email address</label>
-                    <input type="email" defaultValue={email} name="email" onBlur={handleChange} />
-
-                    <label htmlFor="password">Password</label>
-                    <input type="text" defaultValue={password} onBlur={handleChange} name="password" />
-                </InputContainer>
-                {errorMessage && (
-                    <div>
-                        <p className="error-text">{errorMessage}</p>
-                    </div>
-                )}
-                <ButtonContainer>
-                    <Button content = "Create Account!"></Button>
-                </ButtonContainer>
+                  <Signup></Signup>
                 </>
             )}
         </MainContainer>
