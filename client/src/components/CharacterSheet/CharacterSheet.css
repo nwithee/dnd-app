@@ -47,12 +47,13 @@ main header {
 }
 container {
   width: 95%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 10px;
   padding-left: 1em;
   padding-right: 1em;
-  display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  border-spacing: 5px;
+  border-spacing: 1cm 2em;
 }
 
 input[type=checkbox] {

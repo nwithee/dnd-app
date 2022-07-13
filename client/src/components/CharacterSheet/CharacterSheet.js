@@ -18,6 +18,7 @@ const CharacterSheet = (props) => {
                 <header>Ability Score</header>
                 <AbilityScores /></container>
             <container>
+                <br></br>
                 <header>Skills</header>
                 <Skills /></container>
             </main>
