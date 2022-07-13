@@ -5,18 +5,26 @@ import React from 'react';
 // import PlayerRace from './PlayerRace/PlayerRace.js';
 // import PlayerAlignment from './PlayerAlignment/PlayerAlignment.js';
 import SimpleText from './SimpleText/SimpleText';
+import "./Bio.css";
 
 const Bio = () => {
   return (
-    <div>
-      <SimpleText textID='characterName' label='name'/>
-      <SimpleText textID='characterClass' label='class'/>
-      <SimpleText textID='characterBackground' label='background'/>
-      <SimpleText textID='playerName' label='name'/>
-      <SimpleText textID='characterRace' label='race'/>
-      <SimpleText textID='characterAlignment' label='alignment'/>
-      <SimpleText textID='characterXP' label='XP'/>
+    <form class="infoBox">
+      <div>
+        <section class="charName"><SimpleText textID='characterName' label='name'/></section>
+        <section>
+          <br></br>
+        </section>
+        <section class="charInfo">
+          <li><SimpleText textID='characterClass' label='class'/></li>
+          <li><SimpleText textID='characterBackground' label='background'/></li>
+          <li><SimpleText textID='playerName' label='name'/></li>
+          <li><SimpleText textID='characterRace' label='race'/></li>
+          <li><SimpleText textID='characterAlignment' label='alignment'/></li>
+          <li><SimpleText textID='characterXP' label='XP'/></li>
+        </section>
     </div>
+    </form>
   )
 };
 

@@ -1,0 +1,53 @@
+form.infoBox {
+  display: flex;
+  align-content: stretch;
+  align-items: stretch;
+}
+
+form.infoBox  section.charName {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+form.infoBox section.charName ul {
+  margin: 0;
+  padding: 0;
+}
+form.infoBox section.charName ul li {
+  list-style-image: none;
+  display: block;
+}
+
+form.infoBox section.charName label {
+  padding: 0.5em;
+  margin: 5px;
+  border: 0;
+}
+form.infoBox section.charName SimpleText {
+  padding-left: 1em;
+}
+
+form.infoBox section.charInfo {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+}
+form.infoBox section.charInfo ul {
+  padding: 10px 0px 5px 0px;
+  display: flex;
+  flex-wrap: wrap;
+}
+form.infoBox section.charInfo li {
+  width: 33.33333%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+form.infoBox section.charInfo label {
+  margin-bottom: 5px;
+}
+form.infoBox section.charInfo SimpleText {
+  border: 0;
+  border-bottom: 1px solid;
+}
+
