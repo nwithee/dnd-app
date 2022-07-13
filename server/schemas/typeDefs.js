@@ -8,12 +8,12 @@ const typeDefs = gql`
         username: String
         email: String
         charCount: Int
-        characters: [Character]
+        characters: [newCharacter]
     }
 
-    type Character {
+    type newCharacter {
         _id: ID
-        name: String
+        charName: String
         strength: Int
         dexterity: Int
         constitution: Int
@@ -55,14 +55,22 @@ const typeDefs = gql`
     }
 
     type Query {
+        me: User
         users: [User]
         user(username: String!): User
-        characters(username: String): [Character]
+        characters(username: String): [newCharacter]
     }
 
     type Mutation {
-        addUser(username: String!, email: String!, password: String!): User
-        addChar(name: String!, strength: Int, dexterity: Int, constitution: Int, username: String!): Character
+        addUser(username: String!, email: String!, password: String!, characters: Int): Auth
+        addChar(charName: String!, strength: Int, dexterity: Int, constitution: Int, username: String!): newCharacter
+        login(email: String!, password: String!): Auth
+
+    }
+
+    type Auth {
+        token: ID!
+        user: User
     }
 
 `;

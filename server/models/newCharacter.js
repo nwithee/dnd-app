@@ -2,11 +2,10 @@ const { Schema, model } = require('mongoose');
 
 const characterSchema = new Schema(
     {
-        name: {
+        charName: {
             type: String,
-            required: true,
-            unique: true,
-            trim: true
+            required: false,
+            unique: false,
         },
         strength: {
             type: Number,
@@ -216,12 +215,12 @@ const characterSchema = new Schema(
             },
     },
     {
-        toJSON: {
+            toJSON: {
             virtuals: true
         }
     }
 );
 
-const Character = model('Character', characterSchema);
+const newCharacter = model('newCharacter', characterSchema);
 
-module.exports = Character;
+module.exports = newCharacter;
