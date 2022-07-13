@@ -1,88 +1,76 @@
-const { User, newCharacter} = require('../models');
-const { AuthenticationError } = require('apollo-server-express');
-const { signToken } = require('../utils/auth');
-
+const { User, newCharacter } = require("../models");
+const { AuthenticationError } = require("apollo-server-express");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
-    Query: {
-        //get all users
-        users: async () => {
-            return User.find()
-                .select('-__v -password')
-                .populate('characters');
-        },
-        // get a user by username
-        user: async (parent, { username }) => {
-            return User.findOne({ username })
-                .select('-__v -password')
-                .populate('characters');
-        },
-        //characters by username
-        characters: async (parent, { username }) => {
-            const params = username ? { username } : {};
-            return newCharacter.find(params).sort({ createdAt: -1 });
-        },
-        me: async (parent, args, context) => {
-            if (context.user) {
-                const userData = await User.findOne({ _id: context.user._id })
-                    .select('-__v -password')
-                    .populate('characters')
+  Query: {
+    //get all users
+    users: async () => {
+      return User.find().select("-__v -password").populate("characters");
+    },
+    // get a user by username
+    user: async (parent, { username }) => {
+      return User.findOne({ username })
+        .select("-__v -password")
+        .populate("characters");
+    },
+    //characters by username
+    characters: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return newCharacter.find(params).sort({ createdAt: -1 });
+    },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        const userData = await User.findOne({ _id: context.user._id })
+          .select("-__v -password")
+          .populate("characters");
 
-                return userData;
-            }
+        return userData;
+      }
 
-            throw new AuthenticationError('Not logged in');
-        },
+      throw new AuthenticationError("Not logged in");
+    },
+  },
+
+  Mutation: {
+    //adduser to db
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+      const token = signToken(user);
+
+      return { token, user };
     },
 
-    Mutation: {
-        //adduser to db
-        addUser: async (parent, args) => {
-            const user = await User.create(args);
-            const token = signToken(user);
+    addChar: async (parent, args, context) => {
+      if (context.user) {
+        const char = await newCharacter.create(args);
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { characters: char._id } },
+          { new: true }
+        );
+        return { char };
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    //login function
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
 
-            return { token, user };
-        },
+      if (!user) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
 
-        addChar: async (parent, args, context) => {
-            
-            if (context.user){
-                            const char = await newCharacter.create(args);
-                            await User.findByIdAndUpdate(
-                            { _id: context.user._id },
-                            { $push: { characters: char._id } },
-                            { new: true }
-                        );
-                        return { char } ;
-                        }
-                        throw new AuthenticationError('You need to be logged in!');
-            }
-            
-            // 
-        ,
-        // addcharacter to db
-        // addChar: async (parent, args) => {
-        //     const char = await Character.create(args);
-        //     return { char };
-        // },
-        //login function
-        login: async (parent, { email, password }) => {
-            const user = await User.findOne({ email });
+      const correctPw = await user.isCorrectPassword(password);
 
-            if (!user) {
-                throw new AuthenticationError('Incorrect credentials');
-            }
+      if (!correctPw) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
 
-            const correctPw = await user.isCorrectPassword(password);
-
-            if (!correctPw) {
-                throw new AuthenticationError('Incorrect credentials');
-            }
-
-            const token = signToken(user);
-            return { token, user };
-        }
-    }
-}
+      const token = signToken(user);
+      return { token, user };
+    },
+  },
+};
 
 module.exports = resolvers;
