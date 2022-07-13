@@ -3,15 +3,26 @@ import styled from 'styled-components';
 //import './App.css';
 import Nav from './components/Nav';
 import Library from './components/Library';
-import Login from './components/Login';
+import AuthPage from './components/AuthPage';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
 });
 
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
 const client = new ApolloClient({
-  link: httpLink,
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
@@ -32,7 +43,7 @@ function App() {
               <Library></Library>
             </>
           ) : (
-            <Login></Login>
+            <AuthPage></AuthPage>
           )}
           
         </Main>
