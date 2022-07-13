@@ -2,15 +2,28 @@ import React from 'react';
 import AbilityScores from "./AbilityScores/AbilityScores.js"
 import Bio from "./Bio/Bio.js"
 import Skills from "./Skills/Skills.js"
+import "./CharacterSheet.css"
 
 
 const CharacterSheet = (props) => {
     return (
+        <section class="sheet">
+        <form class="charForm">
         <div>
-            <AbilityScores />
+            <haeder class="bioInfo">
             <Bio />
-            <Skills />
+            </haeder>
+            <main class="body">
+            <container>
+                <header>Ability Score</header>
+                <AbilityScores /></container>
+            <container>
+                <header>Skills</header>
+                <Skills /></container>
+            </main>
         </div>
+        </form>
+        </section>
     )
 }
 
