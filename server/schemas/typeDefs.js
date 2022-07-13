@@ -110,6 +110,8 @@ const typeDefs = gql`
     ): newCharacter
 
     login(email: String!, password: String!): Auth
+
+    delChar(_id: String!): newCharacter
   }
 
   type Auth {

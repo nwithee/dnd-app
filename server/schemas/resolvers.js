@@ -70,6 +70,16 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+
+    delChar: async (parent, args, context) => {
+      if (context.user) {
+        const char = await newCharacter.findOne(args);
+        await newCharacter.deleteOne(char);
+        console.log("character deleted");
+        return char;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
 };
 
