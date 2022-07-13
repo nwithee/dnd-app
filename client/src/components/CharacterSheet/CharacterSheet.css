@@ -45,8 +45,8 @@ main {
 main header {
       width: 40%;
 }
-container {
-  width: 95%;
+section.info {
+  width: 100%;
   /* border: 1px solid black; */
   border-radius: 10px;
   padding-left: 1em;

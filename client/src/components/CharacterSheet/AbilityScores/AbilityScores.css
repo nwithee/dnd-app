@@ -1,5 +1,5 @@
 form.abilityScores section.AbilityScore {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
@@ -15,8 +15,4 @@ form.abilityScores section.AbilityScore li {
 }
 form.abilityScores section.AbilityScore label {
   margin-bottom: 5px;
-}
-form.abilityScores section.AbilityScore SimpleText {
-  border: 0;
-  border-bottom: 1px solid;
 }

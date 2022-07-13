@@ -1,9 +1,12 @@
-
-form.skills section.skill {
+form.skills section.skills {
   padding: 10px 0px 5px 0px;
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
-form.skills section.skill label {
-  margin-bottom: 5px;
+
+form.skills section.skills li {
+  width: 33.33333%;
+  display: flex;
+  flex-direction: column-reverse;
 }
