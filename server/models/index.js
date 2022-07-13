@@ -1,4 +1,4 @@
 const User = require('./User');
-const Character = require('./Character');
+const newCharacter = require('./newCharacter');
 
-module.exports = { User, Character };
+module.exports = { User, newCharacter };
