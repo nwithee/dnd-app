@@ -89,7 +89,7 @@ const typeDefs = gql`
       perception: Int
       performance: Int
       religion: Int
-      sleighOfHand: Int
+      sleightOfHand: Int
       stealth: Int
       survival: Int
       currentHitPoints: Int
