@@ -4,9 +4,13 @@ import "./Skills.css";
 
 const Skills = (props) => {
     return (
+         <form class="skills">
+            <section class="skill">
         <div>
             <Skill />
         </div>
+        </section>
+        </form>
     )
 }
 

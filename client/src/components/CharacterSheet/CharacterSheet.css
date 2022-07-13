@@ -43,11 +43,10 @@ main {
   align-items: stretch;
 }
 main header {
-      display: flex;
-      width: 80%;
+      width: 40%;
 }
 container {
-  width: 80%;
+  width: 95%;
   border: 1px solid black;
   border-radius: 10px;
   padding-left: 1em;

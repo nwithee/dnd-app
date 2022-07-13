@@ -1,5 +1,9 @@
-ul {
-  width: 80%;
+
+form.skills section.skill {
+  padding: 10px 0px 5px 0px;
   display: flex;
   flex-wrap: wrap;
+}
+form.skills section.skill label {
+  margin-bottom: 5px;
 }
