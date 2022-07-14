@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import {ADD_CHAR} from '../../../utils/mutation';
-import { useMutation } from '@apollo/react-hooks';
+import {ADD_CHAR} from '../../../../utils/mutations';
+import { useMutation } from '@apollo/client';
 
 
 const AbilityScore = (props) => {
