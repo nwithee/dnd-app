@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# [D&D Character Creator](https://github.com/nwithee/dnd-app)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![MSU](https://img.shields.io/badge/MSU-Coding%20Bootcamp-green/)](https://bootcamp.msu.edu/)
 
-## Available Scripts
+### Technologies
 
-In the project directory, you can run:
+![Technologies](https://img.shields.io/badge/Technologies-React-white)
+![Technologies](https://img.shields.io/badge/Technologies-CSS-white)
+![Technologies](https://img.shields.io/badge/Technologies-GraphQL-white)
+![Technologies](https://img.shields.io/badge/Technologies-Heroku-white)
+![Technologies](https://img.shields.io/badge/Technologies-Javascript-white)
+![Technologies](https://img.shields.io/badge/Technologies-MangoDB-white)
+![Technologies](https://img.shields.io/badge/Technologies-Apollo-white)
 
-### `npm start`
+## Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributors](#contributors)
+- [Questions](#questions)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## [Description](#table-of-contents)
 
-### `npm test`
+A full stack D & D Character Build Website that was created using React/GraphQL/MangoDB technologies. The application has a landing page where a ser can create an account or login to the their dashboard if they have aleady created an account. Once logged in an individual can look at their currently created character sheets or they can create a new character sheet and save it to the database. They have the ability to delete characters once they no longer want that character. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This site is currently hosted on [Heroku](https://dndfinalproject.herokuapp.com/) and can also be run locally using the files located in the Github Repository.
 
-### `npm run build`
+## [Installation](#table-of-contents)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+For Running locally, 
+- Clone Repository
+- Run `npm i` to install dependencies
+- Run `npm start` to start the application in your broswer
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## [Contributors](#table-of-contents)
 
-### `npm run eject`
+- [Ansab S](https://github.com/asidiki)
+- [Charlie T](https://github.com/soulslurpee)
+- [Nevin W](https://github.com/nwithee)
+- [Robbie K](https://github.com/shorty008)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## [Questions](#table-of-contents)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- If you have any questions please reach out to the contributors through Github. 
