@@ -2,7 +2,6 @@ body,
 html {
   background-color: #373735;
 }
- 
 
 form.charsheet { 
   width: 900px;
@@ -129,17 +128,6 @@ form.charsheet header section.charname input {
   margin: 5px;
   border: 0;
 }
-<<<<<<< HEAD
-section.info {
-  width: 100%;
-  /* border: 1px solid black; */
-  border-radius: 10px;
-  padding-left: 1em;
-  padding-right: 1em;
-  justify-content: space-around;
-  border-spacing: 5px;
-  border-spacing: 1cm 2em;
-=======
 form.charsheet header section.charname label {
   padding-left: 1em;
 }
@@ -203,7 +191,6 @@ form.charsheet main > section section.attributes {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
->>>>>>> feature/testchar
 }
 
 form.charsheet main > section section.attributes div.scores {
@@ -268,8 +255,8 @@ form.charsheet main > section section.attributes div.attr-applications div.inspi
 
 form.charsheet main > section section.attributes div.attr-applications div.inspiration input {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+    -moz-appearance: none;
+      appearance: none;
   border: 1px solid black;
   padding: 15px;
   border-radius: 10px;
