@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {ADD_CHAR} from '../../../../utils/mutations';
+import {ADD_CHAR} from '../../../../utils/mutation';
 import { useMutation } from '@apollo/client';
 
 
