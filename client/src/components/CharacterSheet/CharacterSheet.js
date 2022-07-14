@@ -3,34 +3,110 @@ import "./CharacterSheet.css"
 
 
 const CharacterSheet = () => {
+
+  const [strength, setStrength] = useState(0);
+  const [dexterity, setDexterity] = useState(0);
+  const [constitution, setConstitution] = useState(0);
+  const [intelligence, setIntelligence] = useState(0);
+  const [wisdom, setWisdom] = useState(0);
+  const [charisma, setCharisma] = useState(0);
+  const [charname, setCharname] = useState("");
+  const [playername, setPlayername] = useState("");
+  const [playerclass, setPlayerclass] = useState("");
+  const [playerrace, setPlayerrace] = useState("");
+  const [playerbackground, setPlayerbackground] = useState("");
+  const [playeralignment, setPlayeralignment] = useState("");
+  const [playerlevel, setPlayerlevel] = useState("");
+
+  const [addChar, { error }] = useMutation(ADD_CHAR);
+
+  const createChar = () => {
+    const addChar = {
+      charName: charname,
+      classNlevel: playerclass + " " + playerlevel,
+      race: playerrace,
+      background: playerbackground,
+      alignment: playeralignment,
+      strength: strength,
+      dexterity: dexterity,
+      constitution: constitution,
+      intelligence: intelligence,
+      wisdom: wisdom,
+      charisma: charisma,
+    };
+  }
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    switch (name) {
+      case "charname":
+        setCharname(value);
+        break;
+      case "playerclass":
+        setPlayerclass(value);
+        break;
+      case "playerrace":
+        setPlayerrace(value);
+        break;
+      case "playerbackground":
+        setPlayerbackground(value);
+        break;
+      case "playeralignment":
+        setPlayeralignment(value);
+        break;
+      case "playerlevel":
+        setPlayerlevel(value);
+        break;
+        case "strength":
+          setStrength(value);
+          break;
+        case "dexterity":
+          setDexterity(value);
+          break;
+        case "constitution":
+          setConstitution(value);
+          break;
+        case "intelligence":
+          setIntelligence(value);
+          break;
+        case "wisdom":
+          setWisdom(value);
+          break;
+        case "charisma":
+          setCharisma(value);
+          break;
+      default:
+        break;
+    }
+
     return (<>
     <form class="charsheet">
   <header>
     <section className="charname">
       <label htmlFor="charname">Character Name</label>
-      <input name="charname" placeholder="Character Name" />
+      <input name="charname" placeholder="Character Name" onChange = { handleInputChange }/>
     </section>
     <section className="misc">
       <ul>
         <li>
           <label htmlFor="classlevel">Class &amp; Level</label>
-          <input name="classlevel" placeholder="Class & Level" />
+          <input name="classlevel" placeholder="Class & Level" onChange = { handleInputChange }/>
         </li>
         <li>
           <label htmlFor="background">Background</label>
-          <input name="background" placeholder="Background" />
+          <input name="background" placeholder="Background" onChange = { handleInputChange }/>
         </li>
         <li>
           <label htmlFor="playername">Player Name</label>
-          <input name="playername" placeholder="Player Name" />
+          <input name="playername" placeholder="Player Name" onChange = { handleInputChange }/>
         </li>
         <li>
           <label htmlFor="race">Race</label>
-          <input name="race" placeholder="Race" />
+          <input name="race" placeholder="Race" onChange = { handleInputChange }/>
         </li>
         <li>
           <label htmlFor="alignment">Alignment</label>
-          <input name="alignment" placeholder="Alignment" />
+          <input name="alignment" placeholder="Alignment" onChange = { handleInputChange }/>
         </li>
         <li>
           <label htmlFor="experiencepoints">Experience Points</label>
@@ -47,7 +123,7 @@ const CharacterSheet = () => {
             <li>
               <div className="score">
                 <label htmlFor="Strengthscore">Strength</label>
-                <input name="Strengthscore" placeholder="10" />
+                <input name="Strengthscore" placeholder="10" onChange = { handleInputChange }/>
               </div>
               <div className="modifier">
                 <input name="Strengthmod" placeholder="+0"/>
@@ -56,7 +132,7 @@ const CharacterSheet = () => {
             <li>
               <div className="score">
                 <label htmlFor="Dexterityscore">Dexterity</label>
-                <input name="Dexterityscore" placeholder="10" />
+                <input name="Dexterityscore" placeholder="10" onChange = { handleInputChange }/>
               </div>
               <div className="modifier">
                 <input name="Dexteritymod" placeholder="+0" />
@@ -65,7 +141,7 @@ const CharacterSheet = () => {
             <li>
               <div className="score">
                 <label htmlFor="Constitutionscore">Constitution</label>
-                <input name="Constitutionscore" placeholder="10" />
+                <input name="Constitutionscore" placeholder="10" onChange = { handleInputChange }/>
               </div>
               <div className="modifier">
                 <input name="Constitutionmod" placeholder="+0" />
@@ -74,7 +150,7 @@ const CharacterSheet = () => {
             <li>
               <div className="score">
                 <label htmlFor="Wisdomscore">Wisdom</label>
-                <input name="Wisdomscore" placeholder="10" />
+                <input name="Wisdomscore" placeholder="10" onChange = { handleInputChange }/>
               </div>
               <div className="modifier">
                 <input name="Wisdommod" placeholder="+0" />
@@ -83,10 +159,10 @@ const CharacterSheet = () => {
             <li>
               <div className="score">
                 <label htmlFor="Intelligencescore">Intelligence</label>
-                <input name="Intelligencescore" placeholder="10" />
+                <input name="Intelligencescore" placeholder="10" onChange = { handleInputChange }/>
               </div>
               <div className="modifier">
-                <input name="Intelligencemod" placeholder="+0" />
+                <input name="Intelligencemod" placeholder="+0" onChange = { handleInputChange }/>
               </div>
             </li>
             <li>
@@ -95,7 +171,7 @@ const CharacterSheet = () => {
                 <input name="Charismascore" placeholder="10" />
               </div>
               <div className="modifier">
-                <input name="Charismamod" placeholder="+0" />
+                <input name="Charismamod" placeholder="+0" onChange = { handleInputChange }/>
               </div>
             </li>
           </ul>
@@ -105,7 +181,7 @@ const CharacterSheet = () => {
             <div className="label-container">
               <label htmlFor="inspiration">Inspiration</label>
             </div>
-            <input name="inspiration" type="checkbox" />
+            <input name="inspiration" type="checkbox" onChange = { handleInputChange }/>
           </div>
           <div className="proficiencybonus box">
             <div className="label-container">
@@ -476,8 +552,9 @@ const CharacterSheet = () => {
   </main>
   </form>
 
-  <botton>Save Character</botton>
+  <button onSubmit = { createChar }>Save Character</button>
     </>)
+}
 }
 
 export default CharacterSheet;
