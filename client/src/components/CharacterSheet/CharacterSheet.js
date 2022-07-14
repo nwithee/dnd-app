@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
+import { ADD_CHAR } from '../../utils/mutation';
 import "./CharacterSheet.css"
 
 
@@ -42,18 +43,11 @@ const CharacterSheet = () => {
   const [armorClass, setArmorClass] = useState(0);
   const [initiative, setInitiative] = useState(0);
   const [speed, setSpeed] = useState(0);
-  const [personailtyTraits, setPersonalityTraits] = useState(0);
   const [ideals, setIdeals] = useState(0);
   const [bonds, setBonds] = useState(0);
   const [flaws, setFlaws] = useState(0);
   const [proficiencyBonus, setProficiencyBonus] = useState(0);
   const [inspiration, setInspiration] = useState(0);
-
-
-
-
-
-
 
   const [addChar, { error }] = useMutation(ADD_CHAR);
 
@@ -96,7 +90,6 @@ const CharacterSheet = () => {
       armorClass: armorClass,
       initiative: initiative,
       speed: speed,
-      personalityTraits: personalityTraits,
       ideals: ideals,
       bonds: bonds,
       flaws: flaws,
@@ -223,9 +216,6 @@ const CharacterSheet = () => {
         case "speed":
           setSpeed(value);
           break;
-        case "personalityTraits":
-          setPersonalityTraits(value);
-          break;
         case "ideals":
           setIdeals(value);
           break;
@@ -244,6 +234,7 @@ const CharacterSheet = () => {
       default:
         break;
     }
+  }
 
     return (<>
     <section className="boarder">
@@ -722,7 +713,6 @@ const CharacterSheet = () => {
   <button onSubmit = { createChar }>Save Character</button>
 
     </>)
-}
 }
 
 export default CharacterSheet;
