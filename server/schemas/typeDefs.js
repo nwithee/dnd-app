@@ -72,7 +72,6 @@ const typeDefs = gql`
       strength: Int
       dexterity: Int
       constitution: Int
-      username: String!
       intelligence: Int
       wisdom: Int
       charisma: Int
