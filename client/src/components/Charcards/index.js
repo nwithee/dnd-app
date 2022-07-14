@@ -1,25 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useQuery, gql } from '@apollo/client'
+import { QUERY_CHARACTER } from '../../utils/queries';
 
-function Characters() {
+const Characters = () => {
+    const [characters, setCharacters] = useState([]);
+    const [name, setName] = useState('');
+    const [level, setLevel] = useState('');
+    const [cclass, setClass] = useState('');
+    const [race, setRace] = useState ('');
+
+    const {error, data} = useQuery(QUERY_CHARACTER);
+
+    useEffect(()=> {
+        setCharacters(data.characters)
+    }, [data])
 
     return (
-        <MainContainer>
             <Card>
                     <Img src = {require(`../../assets/charimages/dwarf.jpeg`)}></Img>
-                    <div>Name: Bertrand</div>
-                    <div>Level: 2</div>
-                    <div>Class: Fighter</div>
-                    <div>Race: Dwarf</div>
+                    <div>Name: {name}</div>
+                    <div>Level: {level}</div>
+                    <div>Class: {cclass}</div>
+                    <div>Race: {race}</div>
             </Card>
-            <Card>
-                    <Img src = {require(`../../assets/charimages/wood-elf.jpeg`)}></Img>
-                    <div>Name: Bernard</div>
-                    <div>Level: 5</div>
-                    <div>Class: Ranger</div>
-                    <div>Race: Elf</div>
-            </Card>
-        </MainContainer>
     )
 }
 
