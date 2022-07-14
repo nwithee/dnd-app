@@ -21,9 +21,10 @@ const CharacterSheet = () => {
   const [addChar, { error }] = useMutation(ADD_CHAR);
 
   const createChar = () => {
-    const addChar = {
+    addChar({  
+    variables: {
       charName: charname,
-      classNlevel: playerclass + " " + playerlevel,
+      classNlevel: playerclass,
       race: playerrace,
       background: playerbackground,
       alignment: playeralignment,
@@ -33,8 +34,12 @@ const CharacterSheet = () => {
       intelligence: intelligence,
       wisdom: wisdom,
       charisma: charisma,
-    };
-  }
+    }
+  })
+  if (error) {
+      console.log(error);
+    }
+  };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
