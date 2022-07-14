@@ -116,5 +116,4 @@ export const ADD_CHAR = gql`
       experiencePoints
     }
   }
-}
 `;
