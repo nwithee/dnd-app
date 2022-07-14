@@ -44,7 +44,7 @@ function Nav(props) {
             </>
           ) : (
           <div>
-            <span onClick ={() => setLoginSelected(true)}>Login</span>
+            <span onClick ={() => setLoginSelected(true)}>Login/Signup</span>
           </div>
           )}
         </Navbar>

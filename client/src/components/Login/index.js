@@ -44,7 +44,7 @@ const Login = (props) => {
             <form onSubmit={handleFormSubmit}>
               <InputContainer>
                 <label htmlFor = "email">Email Address</label>
-                <input
+                <Input
                     placeholder="Your email"
                     name="email"
                     type="email"
@@ -53,7 +53,7 @@ const Login = (props) => {
                     onChange={handleChange}
                 />
                 <label htmlFor = "password">Password</label>
-                <input
+                <Input
                     placeholder="******"
                     name="password"
                     type="password"
@@ -80,6 +80,12 @@ const InputContainer = styled.div`
   align-items: center;
   height: 40%;
   width: 100%;
+`;
+
+const Input = styled.input`
+  border-radius: 5px;
+  height: 25px;
+  border-color: brown;
 `;
 
 const ButtonContainer = styled.div`
