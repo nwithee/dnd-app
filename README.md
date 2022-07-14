@@ -44,4 +44,3 @@ For Running locally,
 ## [Questions](#table-of-contents)
 
 - If you have any questions please reach out to the contributors through Github. 
-
