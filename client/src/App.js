@@ -45,7 +45,7 @@ function App() {
         <Main>
           {!loginSelected ? (
             <>
-              <CharacterSheet></CharacterSheet>
+              <Library></Library>
             </>
           ) : (
             <AuthPage></AuthPage>
