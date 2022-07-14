@@ -1,9 +1,9 @@
 const db = require('../config/connection');
-const { Character, User } = require('../models');
+const { newCharacter, User } = require('../models');
 const faker = require('faker');
 
 db.once('open', async () => {
-    await Character.deleteMany({});
+    await newCharacter.deleteMany({});
     await User.deleteMany({});
 
     // create user data

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import Auth from '../../utils/auth';
 
 //CSS Styling
 const Navbar = styled.nav`
@@ -27,14 +28,25 @@ function Nav(props) {
     setLoginSelected
   } = props;
 
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+  };
+
     return (
         <Navbar>
           <div>
             <a href="/"><span role="img" label="dragon"> 🐉 </span> D&D Character Creator<span role="img" label="dragon"> 🐉 </span></a>
           </div>
+          {Auth.loggedIn() ? (
+            <>
+              <a href="/" onClick={logout}> Logout</a>
+            </>
+          ) : (
           <div>
-            <span onClick ={() => setLoginSelected(true)}>Login</span>
+            <span onClick ={() => setLoginSelected(true)}>Login/Signup</span>
           </div>
+          )}
         </Navbar>
     );
   }
