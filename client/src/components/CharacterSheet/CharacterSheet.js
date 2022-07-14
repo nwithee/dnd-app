@@ -14,12 +14,13 @@ const CharacterSheet = (props) => {
             <Bio />
             </haeder>
             <main class="body">
-            <container>
+            <section class="info">
                 <header>Ability Score</header>
-                <AbilityScores /></container>
-            <container>
+                <AbilityScores /></section>
+            <section class="info">
+                <br></br>
                 <header>Skills</header>
-                <Skills /></container>
+                <Skills /></section>
             </main>
         </div>
         </form>
