@@ -11,6 +11,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import CharacterSheet from "./components/CharacterSheet/CharacterSheet";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -44,7 +45,7 @@ function App() {
         <Main>
           {!loginSelected ? (
             <>
-              <Library></Library>
+              <CharacterSheet></CharacterSheet>
             </>
           ) : (
             <AuthPage></AuthPage>

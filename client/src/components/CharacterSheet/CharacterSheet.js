@@ -1,13 +1,10 @@
 import React from 'react';
-// import AbilityScores from "./AbilityScores/AbilityScores.js"
-// import Bio from "./Bio/Bio.js"
-// import Skills from "./Skills/Skills.js"
 import "./CharacterSheet.css"
 
 
 const CharacterSheet = () => {
     return (<>
-  &lt;&gt;
+    <form class="charsheet">
   <header>
     <section className="charname">
       <label htmlFor="charname">Character Name</label>
@@ -477,9 +474,10 @@ const CharacterSheet = () => {
       </section>
     </section>
   </main>
-</>
+  </form>
 
-    )
+  <botton>Save Character</botton>
+    </>)
 }
 
 export default CharacterSheet;
