@@ -3,6 +3,7 @@ import styled from 'styled-components';
 //import Button from '../CSS/Button';
 import Charcards from '../Charcards';
 import CharacterSheet from '../CharacterSheet/CharacterSheet';
+import Auth from '../../utils/auth';
 
 function Library() {
 
@@ -22,20 +23,30 @@ function Library() {
     return (
         <MainContainer>
             <Title>D&D Character Library</Title>
-            
-        {cards && (
-            <>
-            <Button onClick={sheetHandler}>Create New Character</Button>
-            <CardContainer>
-                <Charcards></Charcards>
-            </CardContainer>
-            </>
-        )}
-        {sheet && (
-            <>
-            <CharacterSheet></CharacterSheet>
-            <Button onClick={cardsHandler}>Create Character!</Button>
-            </>
+
+        {Auth.loggedIn() ? (
+          <>
+            {cards && (
+                <>
+                <Button onClick={sheetHandler}>Create New Character</Button>
+                <CardContainer>
+                    <Charcards></Charcards>
+                </CardContainer>
+                </>
+            )}
+            {sheet && (
+                <>
+                <CharacterSheet></CharacterSheet>
+                <Button onClick={cardsHandler}>Create Character!</Button>
+                </>
+            )}
+          </>
+        ) : (
+          <>
+            <Img src = {require(`../../assets/charimages/background.jpeg`)}></Img>
+
+            <p> <b>🗡️ Login or Create an Account Today to Begin your Adventure! 🛡️</b></p>
+          </>
         )}
         </MainContainer>
     )
@@ -130,5 +141,12 @@ const Button = styled.button`
       top: 3px;
 }
 `
+
+const Img = styled.img`
+    margin: 2px;
+    max-height: 500px;
+    max-width: 500px;
+    border-radius: 10px;
+`;
 
 export default Library;

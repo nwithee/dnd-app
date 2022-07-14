@@ -1,171 +1,77 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Button from '../CSS/Button';
-//import { useMutation } from '@apollo/client';
-//import { ADD_USER } from '../utils/mutations';
-import { validateEmail } from '../../utils/helpers';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../../utils/mutation';
+import Auth from '../../utils/auth';
 
+const Login = (props) => {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error }] = useMutation(LOGIN_USER);
 
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-function Login() {
-    const [formState, setFormState] = useState({ username: '', email: '', password: '' });
-    const { username, email, password } = formState;
-    const [errorMessage, setErrorMessage] = useState('');
-    
-    //Code for validating input
-    function handleChange(e) {
-        if (e.target.name === 'email') {
-            const isValid = validateEmail(e.target.value);
-            console.log(isValid);
-            // isValid conditional statement
-            if (!isValid) {
-                setErrorMessage('Your email is invalid.');
-              } else {
-                setErrorMessage('');
-              }
-        } else {
-            if (!e.target.value.length) {
-              setErrorMessage(`A ${e.target.name} is required.`);
-            } else {
-              setErrorMessage('');
-            }
-          }
-        
-          if (!errorMessage) {
-            setFormState({ ...formState, [e.target.name]: e.target.value });
-          }
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
 
-        console.log('errorMessage', errorMessage);
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
     }
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        console.log(formState);
-    }
-    
-    //Code for switching between login and signup
-    const [login, setLogin] = useState(true);
-    const [signup, setSignup] = useState(false);
+    // clear form values
+    setFormState({
+      email: '',
+      password: '',
+    });
+  };
 
-    const loginHandler = () => {
-        setLogin(true);
-        setSignup(false);
-    };
-    const signupHandler = () => {
-        setLogin(false);
-        setSignup(true);
-    };
+  return (
+          <div>
+            <form onSubmit={handleFormSubmit}>
+              <InputContainer>
+                <label htmlFor = "email">Email Address</label>
+                <Input
+                    placeholder="Your email"
+                    name="email"
+                    type="email"
+                    id="email"
+                    value={formState.email}
+                    onChange={handleChange}
+                />
+                <label htmlFor = "password">Password</label>
+                <Input
+                    placeholder="******"
+                    name="password"
+                    type="password"
+                    id="password"
+                    value={formState.password}
+                    onChange={handleChange}
+                />
+              </InputContainer>
 
-    //Code for capturing user details
+              <ButtonContainer>
+                <Button type="submit">Login!</Button>
+              </ButtonContainer>
+            </form>
 
-    return (
-        <MainContainer>
-            <ButtonContainer>
-                <button content = "Login" onClick={loginHandler}>
-                    Login</button>
-                <button onClick={signupHandler}>
-                    Signup</button>
-            </ButtonContainer>
-            {login && (
-                <>
-                <LoginText>Login</LoginText>
-                <InputContainer>
-                    <label htmlFor="email">Email address</label>
-                    <input type="email" defaultValue={email} name="email" onBlur={handleChange} />
-
-                    <label htmlFor="password">Password</label>
-                    <input type="text" defaultValue={password} onBlur={handleChange} name="password" />
-                </InputContainer>
-                {errorMessage && (
-                    <div>
-                        <p className="error-text">{errorMessage}</p>
-                    </div>
-                )}
-                <ButtonContainer>
-                    <Button content = "Login!"></Button>
-                </ButtonContainer>
-                </>
-            )}
-            {signup && (
-                <>
-                <LoginText>Signup</LoginText>
-                <InputContainer>
-                    <label htmlFor="username">Username</label>
-                    <input type="text" defaultValue={username} name="username" onBlur={handleChange} />
-
-                    <label htmlFor="email">Email address</label>
-                    <input type="email" defaultValue={email} name="email" onBlur={handleChange} />
-
-                    <label htmlFor="password">Password</label>
-                    <input type="text" defaultValue={password} onBlur={handleChange} name="password" />
-                </InputContainer>
-                {errorMessage && (
-                    <div>
-                        <p className="error-text">{errorMessage}</p>
-                    </div>
-                )}
-                <ButtonContainer>
-                    <Button content = "Create Account!"></Button>
-                </ButtonContainer>
-                </>
-            )}
-        </MainContainer>
-    );
-}
-
-
-const MainContainer = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  height: 80vh;
-  width: 30vw;
-  background: #f9f7f4 !important;
-  background-color: #f9f7f4 !important;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(8.5px);
-  -webkit-backdrop-filter: blur(8.5px);
-  border-radius: 20px;
-  font-family: "Cinzel Decorative", cursive;
-  color: black;
-  @media only screen and (max-width: 320px) {
-    width: 80vw;
-    height: 90vh;
-    hr {
-      margin-bottom: 0.3rem;
-    }
-    h4 {
-      font-size: small;
-    }
-  }
-  @media only screen and (min-width: 360px) {
-    width: 80vw;
-    height: 90vh;
-    h4 {
-      font-size: small;
-    }
-  }
-  @media only screen and (min-width: 411px) {
-    width: 80vw;
-    height: 90vh;
-  }
-  @media only screen and (min-width: 768px) {
-    width: 80vw;
-    height: 80vh;
-  }
-  @media only screen and (min-width: 1024px) {
-    width: 70vw;
-    height: 50vh;
-  }
-  @media only screen and (min-width: 1280px) {
-    width: 30vw;
-    height: 80vh;
-  }
-`;
-
-const LoginText = styled.h1`
-  margin: 5px 0 20px 0;
-`;
+            {error && <div>Login failed</div>}
+          </div>
+  );
+};
 
 const InputContainer = styled.div`
   display: flex;
@@ -176,6 +82,12 @@ const InputContainer = styled.div`
   width: 100%;
 `;
 
+const Input = styled.input`
+  border-radius: 5px;
+  height: 25px;
+  border-color: brown;
+`;
+
 const ButtonContainer = styled.div`
   width: 100%;
   margin: 10px;
@@ -184,5 +96,31 @@ const ButtonContainer = styled.div`
   justify-content: space-around;
   
 `;
+
+const Button = styled.button`
+  font-family: "Cinzel Decorative";
+  margin: 10px;
+  background-color: #8fa189;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;
+  font-weight: bold;
+  border: solid 5px #000;
+  border-width: 0 4px 5px 0;
+  border-radius: 5px;
+  border-color: transparent #6c7b67 #7f8f79 transparent;
+  background-clip: padding-box;
+  text-shadow: 2px 2px 3px rgb(255 255 255 / 50%);
+  color: black;
+  width: fit-content;
+  cursor: pointer;
+  &:hover {
+      border-width: 0 2px 3px 0;
+      margin-right: 4px;
+      position: relative;
+      left: 2px;
+      top: 3px;
+}
+`
 
 export default Login;

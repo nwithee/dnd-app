@@ -37,7 +37,7 @@ const resolvers = {
     addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
-
+      console.log(user + "created");
       return { token, user };
     },
 
@@ -49,6 +49,7 @@ const resolvers = {
           { $push: { characters: char._id } },
           { new: true }
         );
+        console.log(char + "created");
         return { char };
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -68,7 +69,18 @@ const resolvers = {
       }
 
       const token = signToken(user);
+      console.log(user + "logged in");
       return { token, user };
+    },
+
+    delChar: async (parent, args, context) => {
+      if (context.user) {
+        const char = await newCharacter.findOne(args);
+        await newCharacter.deleteOne(char);
+        console.log(char + "deleted");
+        return char;
+      }
+      throw new AuthenticationError("You need to be logged in!");
     },
   },
 };
