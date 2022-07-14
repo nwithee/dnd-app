@@ -1,22 +1,27 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
 //import './App.css';
-import Nav from './components/Nav';
-import Library from './components/Library';
-import AuthPage from './components/AuthPage';
-import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+import Nav from "./components/Nav";
+import Library from "./components/Library";
+import AuthPage from "./components/AuthPage";
+import {
+  ApolloProvider,
+  ApolloClient,
+  InMemoryCache,
+  createHttpLink,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem("id_token");
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
@@ -27,15 +32,14 @@ const client = new ApolloClient({
 });
 
 function App() {
-
   const [loginSelected, setLoginSelected] = useState(false);
 
   return (
     <ApolloProvider client={client}>
       <div className="App">
         <Nav
-          loginSelected = {loginSelected}
-          setLoginSelected = {setLoginSelected}
+          loginSelected={loginSelected}
+          setLoginSelected={setLoginSelected}
         ></Nav>
         <Main>
           {!loginSelected ? (
@@ -45,7 +49,6 @@ function App() {
           ) : (
             <AuthPage></AuthPage>
           )}
-          
         </Main>
       </div>
     </ApolloProvider>
