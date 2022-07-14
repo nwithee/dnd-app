@@ -68,11 +68,10 @@ const typeDefs = gql`
       characters: Int
     ): Auth
     addChar(
-      charName: String!
+      charName: String
       strength: Int
       dexterity: Int
       constitution: Int
-      username: String!
       intelligence: Int
       wisdom: Int
       charisma: Int

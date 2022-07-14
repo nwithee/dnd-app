@@ -209,10 +209,6 @@ const characterSchema = new Schema(
       required: false,
       unique: false,
     },
-    username: {
-      type: String,
-      required: true,
-    },
   },
   {
     toJSON: {
