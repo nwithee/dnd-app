@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-import React, { useState } from 'react';
-import {ADD_CHAR} from '../../../../utils/mutation';
-import { useMutation } from '@apollo/client';
-
-=======
 import React, { useState } from "react";
 import { ADD_CHAR } from "../../../../utils/mutation";
 import { useMutation } from "@apollo/client";
->>>>>>> feature/testchar
 
 const AbilityScore = (props) => {
   const [strength, setStrength] = useState(0);
