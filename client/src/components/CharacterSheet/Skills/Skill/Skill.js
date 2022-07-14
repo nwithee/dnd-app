@@ -1,5 +1,6 @@
 import React from 'react';
 import skillList from './skillList';
+import "./skill.css";
 
 const Skill = () => {
 
@@ -8,8 +9,9 @@ const Skill = () => {
   skills.forEach((skill, index) => {
     skillslist.push(
       <li key={index}>
+        <input name={`${skill}-prof`} type="checkbox" />
         <label htmlFor={skill}>{skill} <span className="skill">(Atr)</span></label>
-        <input name={skill} placeholder="+0" type="text" /><input name={`${skill}-prof`} type="checkbox" />
+        <input name={skill} placeholder="+0" type="text" />
       </li>
     )
   })

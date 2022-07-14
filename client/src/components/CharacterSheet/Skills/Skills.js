@@ -7,7 +7,7 @@ const Skills = (props) => {
          <form class="skills">
             <section class="skill">
         <div>
-            <Skill />
+            <li><Skill /></li>
         </div>
         </section>
         </form>

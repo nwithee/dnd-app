@@ -2,6 +2,25 @@ import React from 'react';
 import "./CharacterSheet.css"
 
 
+<<<<<<< HEAD
+const CharacterSheet = (props) => {
+    return (
+        <section class="sheet">
+        <form class="charForm">
+        <div>
+            <haeder class="bioInfo">
+            <Bio />
+            </haeder>
+            <main class="body">
+            <section class="info">
+                <header>Ability Score</header>
+                <AbilityScores /></section>
+            <section class="info">
+                <br></br>
+                <header>Skills</header>
+                <Skills /></section>
+            </main>
+=======
 const CharacterSheet = () => {
 
   const [strength, setStrength] = useState(0);
@@ -180,6 +199,7 @@ const CharacterSheet = () => {
               </div>
             </li>
           </ul>
+>>>>>>> feature/testchar
         </div>
         <div className="attr-applications">
           <div className="inspiration box">

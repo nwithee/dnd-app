@@ -129,6 +129,17 @@ form.charsheet header section.charname input {
   margin: 5px;
   border: 0;
 }
+<<<<<<< HEAD
+section.info {
+  width: 100%;
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  padding-left: 1em;
+  padding-right: 1em;
+  justify-content: space-around;
+  border-spacing: 5px;
+  border-spacing: 1cm 2em;
+=======
 form.charsheet header section.charname label {
   padding-left: 1em;
 }
@@ -192,6 +203,7 @@ form.charsheet main > section section.attributes {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+>>>>>>> feature/testchar
 }
 
 form.charsheet main > section section.attributes div.scores {
