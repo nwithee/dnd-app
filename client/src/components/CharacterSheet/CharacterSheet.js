@@ -710,7 +710,7 @@ const CharacterSheet = () => {
   </main>
   </form>
   </section>
-  <button onSubmit = { createChar }>Save Character</button>
+  <button onClick = { createChar }>Save Character</button>
 
     </>)
 }
