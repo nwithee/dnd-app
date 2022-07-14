@@ -26,7 +26,7 @@ export const ADD_USER = gql`
 
 export const ADD_CHAR = gql`
   mutation addChar(
-    $charName: String!, 
+    $charName: String, 
     $strength: Int, 
     $dexterity: Int, 
     $constitution: Int, 
